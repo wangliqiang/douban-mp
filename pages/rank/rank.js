@@ -5,62 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    allSubjects: [
+      // { title: '影院热映', url: 'v2/movie/in_theaters', movies: [] },
+      { title: 'Top250', url: 'v2/movie/top250', movies: [] },
+      { title: '口碑榜', url: 'v2/movie/weekly', movies: [] },
+      { title: '新片榜', url: 'v2/movie/new_movies', movies: [] },
+      { title: '北美票房榜', url: 'v2/movie/us_box', movies: [] },
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.data.allSubjects.forEach(subject => {
+      let obj = subject;
+      obj.movies = wx.getStorageSync(obj.title).slice(0,3) || [];
+      // obj.movies.slice(0, 3)
+    });
+    this.setData(this.data)
+    console.log(this.data)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

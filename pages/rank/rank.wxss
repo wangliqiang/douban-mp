@@ -1,1 +1,58 @@
 /* pages/rank/rank.wxss */
+.container{
+  padding: 20rpx;
+}
+.items .item{
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.left {
+  border-radius: 10rpx;
+  /* background-image: url("https://img9.doubanio.com/view/photo/photo/public/p2309770674.jpg"); 
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+.left .bg {
+  border-radius: 10rpx;
+  background-color: rgba(50, 50, 59,0.8);
+}
+
+.left image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.left .title {
+  display: flex;
+  width: 200rpx;
+  height: 200rpx;
+  color: #c0c5c979;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.item .right {
+  width: 100%;
+  margin: 20rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3rpx solid #b9b3b3;
+  border-left: none;
+  border-radius: 0 10rpx 10rpx 0;
+}
+.right .text{
+  display: flex;
+  margin-left: 30rpx;
+  font-size: 22rpx;
+  color: #000000;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.text .rate {
+  margin-left: 20rpx;
+  color: #F9B438;
+}

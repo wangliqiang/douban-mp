@@ -1,10 +1,18 @@
 <!--pages/rank/rank.wxml-->
-<nav-bar title="榜单" 
-  statusBarColor="#ffffff" 
-  navBarColor="#ffffff"
-  titleColor="#000000"
-  back="false"
-  home="true"></nav-bar>
 <view class="container">
-  
+  <view class="items" wx:for="{{ allSubjects }}" wx:for-item="subject" wx:key="unique">
+    <view class="item">
+      <view class="left">
+        <view class="bg" style='background-image: url("{{ subject.movies[0].images.large }}"); background-position: 50%;background-repeat: no-repeat;background-size: cover;'>
+          <image wx:if='{{ subject.title == "Top250"}}' src="https://img1.doubanio.com/img/files/file-1543460329.png" />
+          <view wx:elif='{{ subject.title == "口碑榜"}}' class="title">Weekly</view>
+          <view wx:elif='{{ subject.title == "新片榜"}}' class="title">NEW</view>
+          <view wx:else class="title">American</view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="text" wx:for="{{ subject.movies }}" wx:for-item="item" wx:for-index="index" wx:key="unique">{{ index + 1 }}. {{ item.title }} <view class="rate">{{ item.rating.average }}分</view></view>
+      </view>
+    </view>
+  </view>
 </view>

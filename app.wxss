@@ -1,1 +1,4 @@
 /**app.wxss**/
+page {
+  font-family: -apple-system, "Droid Sans", Helvetica, sans-serif;
+}

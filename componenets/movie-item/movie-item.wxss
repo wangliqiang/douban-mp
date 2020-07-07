@@ -17,8 +17,8 @@
   width: 100%;
   font-weight: bold;
   margin-bottom: 4rpx;
-  overflow: hidden;
   font-size: 28rpx;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   
