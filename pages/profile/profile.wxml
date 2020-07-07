@@ -1,0 +1,43 @@
+<!-- pages/pofile/profile.wxml -->
+<view class="container">
+  <view class="wrapper">
+    <view class="login-wrapper">
+      <view class="login" bind:tap="toLogin">登录</view>
+      <image src="/assets/imgs/bg_mine_login.png" mode="aspectFit|aspectFill|widthFix" />
+    </view>
+    <view class="items-wrapper">
+      <viwe class="title-wrapper">
+        <view class="title">我的书影音</view>
+        <view class="to-login">
+          登录查看
+          <view class="arrow"></view>
+        </view>
+      </viwe>
+      <view class="items">
+        <view class="item" wx:for="{{ items }}" wx:key="index">
+          <image class="icon" src="/assets/imgs/{{item.icon}}" />
+          <view class="info-wrapper">
+            <view class="info">
+              <view class="left">
+                <view class="top">{{ item.title}}</view>
+                <view class="bottom">
+                  <view class="count">{{ item.count }}</view>
+                  <view class="text">{{ item.has }}</view>
+                </view>
+              </view>
+              <view class="right">
+                <text class="text">{{ item.mark }}</text>
+                <view class="begin-wrapper">
+                  <view data-item="{{ item }}" class="begin" bind:tap="begin">立即开启</view>
+                  <view class="arrow"></view>
+                </view>
+              </view>
+            </view>
+            <view class="divider" wx:if="{{ index < items.length - 1 }}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="version">版本1.0.39</view>
+</view>

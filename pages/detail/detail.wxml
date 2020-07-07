@@ -1,0 +1,84 @@
+<!-- pages/detail/detail.wxml -->
+<!-- <nav-bar title="{{ title }}"
+  statusBarColor="#ffffff" 
+  navBarColor="#ffffff"
+  titleColor="#000000"
+  back="true"
+  home="true"></nav-bar> -->
+<view class="container">
+  <view class="header">
+    <image class="image" src="{{ movie.images.large}}" />
+    <view class="content">
+      <view class="title">{{ movie.title }}({{ movie.year}})</view>
+      <view class="sub-title">{{ movie.original_title }}({{ movie.year}})</view>
+      <view class="desc">
+        {{ movie.genresStr }}
+      </view>
+      <view class="opt">
+        <view class="want">
+          <image src="/assets/imgs/rating_star_small_on.png" />
+          想看
+        </view>
+        <view class="yes">
+          <image src="/assets/imgs/rating_star_small_on.png" />
+          看过
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="rating">
+    <view class="top">
+      <view class="title">豆瓣评分™</view>
+      <view class="arrow"></view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <view class="num">{{ movie.rating.average}}</view>
+        <block wx:if="{{ movie.stars }}">
+          <view class="stars">
+            <image wx:for="{{ movie.stars.on }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_on.png" />
+            <image wx:if="{{ movie.stars.half }}" class="star" src="/assets/imgs/rating_star_small_half.png" />
+            <image wx:for="{{ movie.stars.off }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+          </view>
+        </block>
+      </view>
+      <view class="right">
+        <view class="off-stars">
+          <image wx:for="{{ 5 }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+          <progress class="line" percent="{{ movie.rating.details[5] / movie.rating.total * 100 }}" color="#F7AF31" stroke-width="5" />
+        </view>
+        <view class="off-stars">
+          <image wx:for="{{ 4 }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+          <progress class="line" percent="{{ movie.rating.details[4] / movie.rating.total * 100 }}" color="#F7AF31" stroke-width="5" />
+        </view>
+        <view class="off-stars">
+          <image wx:for="{{ 3 }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+          <progress class="line" percent="{{ movie.rating.details[3] / movie.rating.total * 100 }}" color="#F7AF31" stroke-width="5" />
+        </view>
+        <view class="off-stars">
+          <image wx:for="{{ 2 }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+          <progress class="line" percent="{{ movie.rating.details[2] / movie.rating.total * 100 }}" color="#F7AF31" stroke-width="5" />
+        </view>
+        <view class="off-stars">
+          <image wx:for="{{ 1 }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+          <progress class="line" percent="{{ movie.rating.details[1] / movie.rating.total * 100 }}" color="#F7AF31" stroke-width="5" />
+        </view>
+        <view class="totals">{{ movie.collect_count }}人评分</view>
+      </view>
+    </view>
+  </view>
+  <view class="description">
+    <view class="title">简介</view>
+    <view class="content">
+      <text>
+        {{ movie.title }}
+      </text>
+      <text>
+        {{ movie.original_title }}
+      </text>
+      <text>
+        {{ movie.year }}
+      </text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+{
+  "usingComponents":{
+    "movie-item":"/componenets/movie-item/movie-item"
+  }
+}

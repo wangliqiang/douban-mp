@@ -1,0 +1,44 @@
+<!-- pages/home/home.wxml -->
+<view>
+  <view class="search-wrapper">
+    <view class="search">
+      <image src="/assets/imgs/ic_search.png" />
+      搜索
+    </view>
+  </view>
+  <view class="main">
+    <view wx:for="{{ allSubjects }}" wx:for-item="subject" wx:key="unique" class="row">
+      <view class="title-wrapper">
+        <view class="title">{{ subject.title }}</view>
+        <view class="more" data-index="{{ index }}" bind:tap="viewMore">
+          查看更多
+          <view class="arrow"></view>
+        </view>
+      </view>
+      <scroll-view class="items" scroll-x="true">
+        <!-- <view class="item" wx:for="{{ subject.movies }}" wx:for-item="movie" wx:key="unique">
+          <image class="photo" src="{{ movie.images.large}}" />
+          <view class="title">{{ movie.title }}</view>
+          <view class="score">
+            <block wx:if="{{ movie.stars }}">
+              <view class="stars">
+                <image wx:for="{{ movie.stars.on }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_on.png" />
+                <image wx:if="{{ movie.stars.half }}" class="star" src="/assets/imgs/rating_star_small_half.png" />
+                <image wx:for="{{ movie.stars.off }}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+              </view>
+              {{ movie.rating.average}}
+            </block>
+            <block wx:else>
+              <view>暂无评分</view>
+            </block>
+          </view>
+        </view> -->
+        <movie-item class="item" 
+          movie="{{ movie }}"
+          wx:for="{{ subject.movies }}" 
+          wx:for-item="movie" 
+          wx:key="unique"></movie-item>
+      </scroll-view>
+    </view>
+  </view>
+</view>

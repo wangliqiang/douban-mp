@@ -1,0 +1,25 @@
+/* pages/list/list.wxss */
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30rpx;
+}
+
+.item {
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+/* .item {
+  display: inline-flex;
+  flex-direction: column;
+  width: 160rpx;
+  margin: 0 30rpx 20rpx;
+} */
+
+/* .hide {
+  visibility: hidden;
+  width: 160rpx;
+} */

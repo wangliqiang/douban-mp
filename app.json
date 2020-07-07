@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/profile/profile",
+    "pages/login/login",
+    "pages/agreement/agreement",
+    "pages/detail/detail",
+    "pages/list/list",
+    "pages/rank/rank"
+  ],
+  "tabBar": {
+    "color": "#AAAAAA",
+    "selectedColor": "#56B456",
+    "backgroundColor": "#FFFFFF",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/assets/imgs/ic_tab_home_normal.png",
+        "selectedIconPath": "/assets/imgs/ic_tab_home_active.png"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "榜单",
+        "iconPath": "/assets/imgs/ic_tab_subject_normal.png",
+        "selectedIconPath": "/assets/imgs/ic_tab_subject_active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "/assets/imgs/ic_tab_profile_normal.png",
+        "selectedIconPath": "/assets/imgs/ic_tab_profile_active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取影院信息"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "豆瓣电影",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
+

@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#42bd55",
+  "navigationBarTitleText": "首页",
+  "navigationBarTextStyle": "white",
+  "usingComponents":{
+    "movie-item":"/componenets/movie-item/movie-item"
+  }
+}
