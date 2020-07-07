@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/rank/rank",
     "pages/home/home",
     "pages/profile/profile",
     "pages/login/login",
     "pages/agreement/agreement",
     "pages/detail/detail",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/rank/rank"
   ],
   "tabBar": {
     "color": "#AAAAAA",

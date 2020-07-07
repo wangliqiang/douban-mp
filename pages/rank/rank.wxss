@@ -46,7 +46,7 @@
 .right .text{
   display: flex;
   margin-left: 30rpx;
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #000000;
   margin-bottom: 10rpx;
   overflow: hidden;
