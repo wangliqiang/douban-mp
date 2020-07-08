@@ -23,7 +23,7 @@ Component({
   methods: {
     toDetail: function () {
       wx.navigateTo({
-        url: `/pages/detail/detail?movie=${ JSON.stringify(this.data.movie) }`,
+        url: `/pages/detail/detail?title=${ this.data.movie.title }&id=${ this.data.movie.id }`,
       });
         
     }

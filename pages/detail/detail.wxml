@@ -9,12 +9,10 @@
   <view class="header">
     <image class="image" src="{{ movie.images.large}}" />
     <view class="content">
-      <view class="title">{{ movie.title }}({{ movie.year}})</view>
-      <view class="sub-title">{{ movie.original_title }}({{ movie.year}})</view>
-      <view class="desc">
-        {{ movie.genresStr }}
-      </view>
-      <view class="opt">
+      <view wx:if="{{ movie.title }}" class="title">{{ movie.title }}({{ movie.year}})</view>
+      <view wx:if="{{ movie.original_title }}" class="sub-title">{{ movie.original_title }}({{ movie.year}})</view>
+      <view class="desc">{{ movie.genresStr }}</view>
+      <view class="opt" wx:if="{{ movie.title }}">
         <view class="want">
           <image src="/assets/imgs/rating_star_small_on.png" />
           想看
@@ -69,16 +67,25 @@
   </view>
   <view class="description">
     <view class="title">简介</view>
-    <view class="content">
-      <text>
-        {{ movie.title }}
-      </text>
-      <text>
-        {{ movie.original_title }}
-      </text>
-      <text>
-        {{ movie.year }}
-      </text>
-    </view>
+    <view class="content">{{ movie.summary }}</view>
+  </view>
+  <view class="people">
+    <view class="title">影人</view>
+    <scroll-view class="items" scroll-x="true">
+      <view wx:for="{{  movie.directors }}" class="item" wx:key="unique">
+        <image class="photo" src="{{ item.avatars.large }}" />
+        <view class="name">{{ item.name }}</view>
+        <view class="position">
+          导演
+        </view>
+      </view>
+      <view wx:for="{{  movie.casts }}" class="item" wx:key="unique">
+        <image class="photo" src="{{ item.avatars.large }}" />
+        <view class="name">{{ item.name }}</view>
+        <view class="position">
+          演员
+        </view>
+      </view>
+    </scroll-view>
   </view>
 </view>
