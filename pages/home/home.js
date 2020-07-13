@@ -1,24 +1,49 @@
 // pages/home/home.js
 Page({
   data: {
-    allSubjects: [
-      { title: '影院热映', url: 'v2/movie/in_theaters', movies: [] },
-      { title: '新片榜', url: 'v2/movie/new_movies', movies: [] },
-      { title: '口碑榜', url: 'v2/movie/weekly', movies: [] },
-      { title: '北美票房榜', url: 'v2/movie/us_box', movies: [] },
-      { title: 'Top250', url: 'v2/movie/top250', movies: [] },
+    allSubjects: [{
+        title: '影院热映',
+        url: 'v2/movie/in_theaters',
+        movies: []
+      },
+      {
+        title: '新片榜',
+        url: 'v2/movie/new_movies',
+        movies: []
+      },
+      {
+        title: '口碑榜',
+        url: 'v2/movie/weekly',
+        movies: []
+      },
+      {
+        title: '北美票房榜',
+        url: 'v2/movie/us_box',
+        movies: []
+      },
+      {
+        title: 'Top250',
+        url: 'v2/movie/top250',
+        movies: []
+      },
     ]
   },
   onLoad: function () {
-    if (wx.getStorageSync(this.data.allSubjects[0].title) != []) {
-      this.loadLocalData()
-    } else {
-      this.loadCity(this.loadData);
-      this.loadNewData(1);
-      this.loadNewData(2);
-      this.loadNewData(3);
-      this.loadNewData(4);
-    }
+
+    let timestamp = Date.parse(new Date());
+    let expiration = wx.getStorageSync('expiration');
+
+      if (expiration > timestamp && wx.getStorageSync(this.data.allSubjects[0].title) != []) {
+        this.loadLocalData()
+      } else {
+        wx.clearStorageSync();
+        this.loadCity(this.loadData);
+        this.loadNewData(1);
+        this.loadNewData(2);
+        this.loadNewData(3);
+        this.loadNewData(4);
+        wx.setStorageSync('expiration', timestamp + 1000 * 60 * 5);// 设置缓存时间，5分钟
+      }
   },
   loadLocalData() {
     this.data.allSubjects.forEach(subject => {
@@ -34,7 +59,9 @@ Page({
         apikey: '0df993c66c0c636e29ecbb5344252a4a',
         city: city
       },
-      header: { 'content-type': 'json' },
+      header: {
+        'content-type': 'json'
+      },
       success: (result) => {
         let movies = result.data.subjects
         movies.forEach(movie => {
@@ -61,7 +88,9 @@ Page({
       data: {
         apikey: '0df993c66c0c636e29ecbb5344252a4a',
       },
-      header: { 'content-type': 'json' },
+      header: {
+        'content-type': 'json'
+      },
       success: (result) => {
         let movies = result.data.subjects
         movies.forEach(movie => {
