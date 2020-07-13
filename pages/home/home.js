@@ -33,7 +33,7 @@ Page({
     let timestamp = Date.parse(new Date());
     let expiration = wx.getStorageSync('expiration');
 
-      if (expiration > timestamp && wx.getStorageSync(this.data.allSubjects[0].title) != []) {
+      if ( wx.getStorageSync(this.data.allSubjects[0].title) != [] && expiration > timestamp ) {
         this.loadLocalData()
       } else {
         wx.clearStorageSync();
